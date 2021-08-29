@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackGroundMove.cs" />
+     <Compile Include="Assets\Scripts\BirdController.cs" />
+     <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\WallMove.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
