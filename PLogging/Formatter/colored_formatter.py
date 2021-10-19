@@ -1,7 +1,7 @@
 import logging
 
-from PLogging.Formatter import COLORS
-from PLogging.resources.color_config import RESET
+from PLogging import convert_level
+from PLogging.color import get_color, p_logging_color
 
 
 class ColoredFormatter(logging.Formatter):
@@ -20,7 +20,12 @@ class ColoredFormatter(logging.Formatter):
 
     def format(self, record):
         level_name = record.levelname
-        if self.use_color and level_name in COLORS:
-            level_name_color = COLORS[level_name] + f"[{level_name}]" + RESET
-            record.levelname = level_name_color
+        reset = get_color("reset")
+        bold = get_color("bold")
+        if self.use_color and p_logging_color.is_level(level_name):
+            p_level = convert_level(level_name)
+            print("p_level", level_name, p_level)
+            level_color = p_logging_color.get_level_color(p_level)
+            self._style._fmt = self._style._fmt.replace("%(message)s", f"{level_color}%(message)s{reset}").\
+                replace("%(levelname)s", f"{level_color}{bold}%(levelname)s{reset}{reset}")
         return logging.Formatter.format(self, record)

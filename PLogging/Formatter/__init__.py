@@ -1,10 +1,17 @@
-from PLogging.resources.color_config import FONT_WHITE, FONT_GREEN, FONT_MAGENTA, FONT_YELLOW, FONT_RED, FONT_BLUE
-
-COLORS = {
-    "DEBUG": FONT_WHITE,
-    "INFO": FONT_GREEN,
-    "TRAVA_LOG": FONT_MAGENTA,
-    "WARNING": FONT_YELLOW,
-    "ERROR": FONT_RED,
-    "CRITICAL": FONT_BLUE
-}
+class RecordAttributes:
+    asctime = "asctime"
+    created = "created"
+    filename = "filename"
+    funcName = "funcName"
+    levelname = "levelname"
+    levelno = "levelno"
+    lineno = "lineno"
+    message = "message"
+    module = "module"
+    name = "name"
+    pathname = "pathname"
+    process = "process"
+    processName = "processName"
+    relativeCreated = "relativeCreated"
+    thread = "thread"
+    threadName = "threadName"
