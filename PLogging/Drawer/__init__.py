@@ -1,5 +1,6 @@
-from PLogging import is_level
+from PLogging import get_level_name
 from PLogging.Drawer.color import get_color, ColorMode
+from PLogging.Drawer.message_manager import _MessageManager
 
 BASE_CHARS = ['-', '+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 's', 'f', 'd']
 
@@ -7,13 +8,7 @@ BASE_CHARS = ['-', '+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 's', '
 class Drawer:
     def __init__(self, base_message: str, config=None):
         self._base_message = base_message
-        self._message = {
-            'debug': base_message,
-            'info': base_message,
-            'warning': base_message,
-            'error': base_message,
-            'critical': base_message
-        }
+        self._message = _MessageManager(base_message, ['debug', 'info', 'warning', 'error', 'critical'])
         self.config = config
 
         self._draw_message()
@@ -34,13 +29,6 @@ class Drawer:
         return record_attribute
 
     def _draw_message(self):
-        self._message = {
-            'debug': self._base_message,
-            'info': self._base_message,
-            'warning': self._base_message,
-            'error': self._base_message,
-            'critical': self._base_message
-        }
         if self.config is not None:
             for item in self.config:
                 _temp_message = self._base_message
@@ -48,16 +36,21 @@ class Drawer:
                     attribute_maker = self._detect_format_attribute(key)
                     new_attribute_maker = attribute_maker
                     _config = item['config'][key]
-                    new_attribute_maker = get_color(_config) + new_attribute_maker + get_color(ColorMode.RESET)
+                    for _item_config in _config:
+                        new_attribute_maker = get_color(_item_config) + new_attribute_maker + get_color(ColorMode.RESET)
                     _temp_message = _temp_message.replace(attribute_maker, new_attribute_maker)
                 for _level in item['level']:
-                    if is_level(_level):
-                        self._message[_level] = _temp_message
+                    str_level = get_level_name(_level)
+                    if str_level is not None:
+                        self._message.set_message(str_level, _temp_message)
 
     def get_message(self, level=None):
         if level is None:
-            return self._message['info']
-        return self._message[level]
+            return self._base_message
+        elif not self._message.is_level(level):
+            return self._base_message
+        else:
+            return self._message.get_message(level)
 
     def set_config(self, config):
         self.config = config
