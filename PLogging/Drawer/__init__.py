@@ -1,6 +1,7 @@
-from PLogging import get_level_name
+from PLogging import level_to_names, is_level
 from PLogging.Drawer.color import get_color, ColorMode
 from PLogging.Drawer.message_manager import _MessageManager
+from PLogging.error import NotFoundLevel
 
 BASE_CHARS = ['-', '+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 's', 'f', 'd']
 
@@ -8,7 +9,7 @@ BASE_CHARS = ['-', '+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 's', '
 class Drawer:
     def __init__(self, base_message: str, config=None):
         self._base_message = base_message
-        self._message = _MessageManager(base_message, ['debug', 'info', 'warning', 'error', 'critical'])
+        self._message = _MessageManager(base_message)
         self.config = config
 
         self._draw_message()
@@ -40,14 +41,16 @@ class Drawer:
                         new_attribute_maker = get_color(_item_config) + new_attribute_maker + get_color(ColorMode.RESET)
                     _temp_message = _temp_message.replace(attribute_maker, new_attribute_maker)
                 for _level in item['level']:
-                    str_level = get_level_name(_level)
+                    if _level not in level_to_names:
+                        raise NotFoundLevel(_level)
+                    str_level = level_to_names[_level]
                     if str_level is not None:
                         self._message.set_message(str_level, _temp_message)
 
     def get_message(self, level=None):
         if level is None:
             return self._base_message
-        elif not self._message.is_level(level):
+        elif not is_level(level):
             return self._base_message
         else:
             return self._message.get_message(level)
