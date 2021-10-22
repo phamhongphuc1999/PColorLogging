@@ -11,6 +11,7 @@ class ColoredFormatter(logging.Formatter):
 
     def format(self, record):
         level_name = record.levelname
+
         if self.use_color:
             self._style._fmt = self.drawer.get_message(level_name)
         return logging.Formatter.format(self, record)
