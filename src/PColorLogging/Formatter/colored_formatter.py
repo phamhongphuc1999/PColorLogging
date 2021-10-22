@@ -1,6 +1,6 @@
 import logging
 
-from PColorLog.Drawer import Drawer
+from src.PColorLogging.Drawer import Drawer
 
 
 class ColoredFormatter(logging.Formatter):
