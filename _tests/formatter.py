@@ -1,9 +1,9 @@
 import logging
 
-from PLogging import INFO, ERROR, WARNING, CRITICAL, DEBUG
-from PLogging.Drawer.color import PColor, TextMode
-from PLogging.Formatter.colored_formatter import ColoredFormatter
-from PLogging.Logger.Adapter.extra_adapter_logger import ExtraAdapterLogger
+from PColorLog import INFO, ERROR, WARNING, CRITICAL, DEBUG
+from PColorLog.Drawer.color import PColor, TextMode
+from PColorLog.Formatter.colored_formatter import ColoredFormatter
+from PColorLog.Logger.Adapter.extra_adapter_logger import ExtraAdapterLogger
 
 if __name__ == "__main__":
     logging.addLevelName(25, "trava_log")

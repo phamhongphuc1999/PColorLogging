@@ -1,7 +1,7 @@
-from PLogging import level_to_names, is_level
-from PLogging.Drawer.color import get_color, ColorMode
-from PLogging.Drawer.message_manager import _MessageManager
-from PLogging.error import NotFoundLevel
+from PColorLog import level_to_names, is_level
+from PColorLog.Drawer.color import get_color, ColorMode
+from PColorLog.Drawer.message_manager import _MessageManager
+from PColorLog.error import NotFoundLevel
 
 BASE_CHARS = ['-', '+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 's', 'f', 'd']
 

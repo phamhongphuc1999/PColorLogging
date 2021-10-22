@@ -1,4 +1,4 @@
-from PLogging.Drawer.color.color_code import _ColorModeCode, _TextModeCode, _ForegroundCode, _BackgroundCode
+from PColorLog.Drawer.color.color_code import _ColorModeCode, _TextModeCode, _ForegroundCode, _BackgroundCode
 
 
 class ColorMode:
