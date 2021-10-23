@@ -1,4 +1,4 @@
-from src.PColorLogging import get_level_names
+from PColorLogging import get_level_names
 
 
 class _MessageManager:

@@ -5,7 +5,7 @@
 
 ### Getting Start
 To create the logger
-```pycon
+```python
 import logging
 
 from PColorLogging import DEBUG, INFO, ERROR, WARNING, CRITICAL
@@ -13,23 +13,23 @@ from PColorLogging.Drawer.color import PColor, TextMode
 from PColorLogging.Formatter.colored_formatter import ColoredFormatter
 from PColorLogging.Logger.Adapter.extra_adapter_logger import ExtraAdapterLogger
 
-colored_formatter = ColoredFormatter(f"[%(asctime)s] %(levelname)s:%(phuc)s %(message)s", [
+colored_formatter = ColoredFormatter(f"[%(asctime)s] %(levelname)s:%(custom)s %(message)s", [
     {"config": {"message": [PColor.BLUE]}, "level": [DEBUG]},
-    {"config": {"message": [PColor.BLUE, TextMode.CROSS], "phuc": [PColor.B_WHITE]}, "level": [INFO]},
+    {"config": {"message": [PColor.BLUE], "custom": [PColor.B_WHITE]}, "level": [INFO]},
     {"config": {"message": [PColor.CYAN, TextMode.UNDERLINE]}, "level": [ERROR]},
     {"config": {"message": [PColor.GREEN, TextMode.SLOW_BLINK]}, "level": [WARNING]},
     {"config": {"message": [PColor.WHITE, TextMode.FAST_BLINK]}, "level": [CRITICAL]},
-    {"config": {"message": [PColor.BLUE], "levelname": [PColor.B_CYAN, PColor.WHITE]}, "level": [25]}
+    {"config": {"levelname": [PColor.B_CYAN, PColor.WHITE]}, "level": [25]}
 ])
 
-extra_logger = ExtraAdapterLogger("logger", {"phuc": ""})
+extra_logger = ExtraAdapterLogger("logger", {"custom": "1111"})
 
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(colored_formatter)
 extra_logger.add_handler(console_handler)
 extra_logger.setLevel(logging.INFO)
 
-extra_logger.debug("this is debug", extra={"phuc": 4321})
+extra_logger.debug("this is debug", extra={"custom": 4321})
 extra_logger.info("this is info")
 extra_logger.warning("this is warning")
 extra_logger.error("this is error")
