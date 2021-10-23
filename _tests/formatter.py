@@ -17,13 +17,12 @@ if __name__ == "__main__":
         {"config": {"message": [PColor.BLUE], "levelname": [PColor.B_CYAN, PColor.WHITE]}, "level": [25]}
     ])
 
-    logger = logging.getLogger("abc")
+    extra_logger = ExtraAdapterLogger("logger", {"phuc": ""})
+
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(_format)
-    logger.addHandler(console_handler)
-    logger.setLevel(logging.DEBUG)
-
-    extra_logger = ExtraAdapterLogger(logger, {"phuc": ""})
+    extra_logger.add_handler(console_handler)
+    extra_logger.setLevel(logging.INFO)
 
     extra_logger.debug("this is debug", extra={"phuc": 4321})
     extra_logger.info("this is info")

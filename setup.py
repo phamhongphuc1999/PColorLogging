@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="PColorLogging",
-    version="0.0.15",
+    version="0.0.2",
     author="Phạm Hồng Phúc",
     author_email="phamhongphuc12atm1@gmail.com",
     description="This is powerful logging",
