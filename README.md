@@ -13,6 +13,8 @@ from PColorLogging.Drawer.color import PColor, TextMode
 from PColorLogging.Formatter.colored_formatter import ColoredFormatter
 from PColorLogging.Logger.Adapter.extra_adapter_logger import ExtraAdapterLogger
 
+logging.addLevelName(25, "custom")
+
 colored_formatter = ColoredFormatter(f"[%(asctime)s] %(levelname)s:%(custom)s %(message)s", [
     {"config": {"message": [PColor.BLUE]}, "level": [DEBUG]},
     {"config": {"message": [PColor.BLUE], "custom": [PColor.B_WHITE]}, "level": [INFO]},
