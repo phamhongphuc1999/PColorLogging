@@ -88,7 +88,6 @@ if __name__ == "__main__":
     extra_logger.add_handler(console_handler)
     extra_logger.setLevel(DEBUG)
 
-    print("\n\n\n\n\n")
     extra_logger.debug("this is debug", extra={"att1": "debug1"})
     extra_logger.info("this is info", extra={"att2": "info2"})
     extra_logger.warning("this is warning", extra={"att1": "warning1", "att2": "warning2"})

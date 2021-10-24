@@ -91,3 +91,13 @@ def get_color(key):
         return _BackgroundCode.WHITE
     else:
         raise Exception
+
+
+def get_extra_color(i, j):
+    code = str(i * 16 + j)
+    return u"\u001b[38;5;" + code + "m " + code.ljust(4)
+
+
+def get_extra_background_color(i, j):
+    code = str(i * 16 + j)
+    return u"\u001b[48;5;" + code + "m " + code.ljust(4)
