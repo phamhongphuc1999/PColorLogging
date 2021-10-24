@@ -1,7 +1,7 @@
 <h1 align="center">PColorLogging</h1>
 The powerful python logging, you can create colorful logging and easy to add logging level or record attribute
 
-![demo](./resources/demo.png)
+![demo](https://github.com/phamhongphuc1999/PColorLogging/blob/main/resources/demo.png?raw=true)
 
 ## Reference
 - [Installation](#installation)
@@ -103,4 +103,4 @@ def makeup(base_extra):
 
 extra_logger.set_maker(makeup)
 ```
-Full example in [here](/example)
+Full example in [here](https://github.com/phamhongphuc1999/PColorLogging/tree/main/example)
