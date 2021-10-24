@@ -1,16 +1,20 @@
 from PColorLogging import level_to_names, is_level
 from PColorLogging.Drawer.color import get_color, ColorMode
 from PColorLogging.Drawer.message_manager import _MessageManager
+from PColorLogging.Drawer.utils import _read_json_file
 from PColorLogging.error import NotFoundLevel
 
 BASE_CHARS = ['-', '+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 's', 'f', 'd']
 
 
 class Drawer:
-    def __init__(self, base_message: str, config=None):
+    def __init__(self, base_message: str, config=None, file_config=None):
         self._base_message = base_message
         self._message = _MessageManager(base_message)
-        self.config = config
+        if file_config is None:
+            self.config = config
+        else:
+            self.config = _read_json_file(file_config)
         self._draw_message()
 
     @staticmethod

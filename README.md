@@ -1,10 +1,22 @@
 <h1 align="center">PColorLogging</h1>
-<p align="center">
-  The powerful python logging, you can create colorful logging and easy to add logging level or record attribute
-</p>
+The powerful python logging, you can create colorful logging and easy to add logging level or record attribute
 
-### Getting Start
-Basic Usage
+![demo](./resources/demo.png)
+
+## Reference
+- [Installation](#installation)
+- [Usage](#usage)
+
+---
+### Installation <a name="installation"></a>
+PColorLogging can be installed using pip as follows:
+```shell
+pip install PColorLogging
+```
+
+---
+### Usage <a name="usage"></a>
+Here’s an example of how easy it is to get started:
 ```python
 import logging
 
@@ -21,7 +33,8 @@ colored_formatter = ColoredFormatter(f"[%(asctime)s] %(levelname)s: %(message)s"
     {"config": {"message": [PColor.RED, TextMode.UNDERLINE]}, "level": [ERROR]},
     {"config": {"message": [PColor.CYAN, TextMode.CROSS]}, "level": [CRITICAL]},
     {"config": {"message": [PColor.PURPLE]}, "level": [25]},
-    {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level": [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]}
+    {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level": 
+        [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]}
 ])
 
 logger = logging.getLogger()
@@ -40,7 +53,7 @@ logger.critical("this is critical")
 logger.log(25, "this is custom")
 ```
 
-If you want to add custom record attribute, you should use **ExtraAdapterLogger**
+If you want to add custom record attribute, you should use `ExtraAdapterLogger`
 ```python
 import logging
 
@@ -58,7 +71,8 @@ colored_formatter = ColoredFormatter(f"[%(asctime)s] %(levelname)s: %(att1)s %(a
     {"config": {"message": [PColor.RED, TextMode.UNDERLINE]}, "level": [ERROR]},
     {"config": {"message": [PColor.CYAN, TextMode.CROSS]}, "level": [CRITICAL]},
     {"config": {"message": [PColor.PURPLE]}, "level": [25]},
-    {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level": [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]}
+    {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level": 
+        [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]}
 ])
 
 console_handler = logging.StreamHandler()
@@ -76,7 +90,7 @@ extra_logger.error("this is error")
 extra_logger.critical("this is critical")
 extra_logger.log(25, "this is custom")
 ```
-You can add maker function to **ExtraAdapterLogger** by use set_maker
+And then, you want to add maker function to `ExtraAdapterLogger`, you can use `set_maker` function
 ```python
 def makeup(base_extra):
     if "att1" in base_extra:
@@ -89,3 +103,4 @@ def makeup(base_extra):
 
 extra_logger.set_maker(makeup)
 ```
+Full example in [here](/example)

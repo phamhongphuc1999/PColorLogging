@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="PColorLogging",
-    version="0.0.32",
+    version="0.0.33",
     author="Phạm Hồng Phúc",
     author_email="phamhongphuc12atm1@gmail.com",
     description="This is powerful logging",
@@ -19,6 +19,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        "Environment :: Console"
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),

@@ -19,14 +19,15 @@ def makeup(base_extra):
 if __name__ == "__main__":
     add_level_name(25, "custom")
 
-    colored_formatter = ColoredFormatter(f"[%(asctime)s] %(levelname)s: %(att1)s %(att2)s %(message)s", [
+    colored_formatter = ColoredFormatter("[%(asctime)s] %(levelname)s: %(att1)s %(att2)s %(message)s", [
         {"config": {"message": [PColor.WHITE]}, "level": [DEBUG]},
-        {"config": {"message": [PColor.GREEN], "custom": [PColor.B_WHITE]}, "level": [INFO]},
+        {"config": {"message": [PColor.GREEN]}, "level": [INFO]},
         {"config": {"message": [PColor.YELLOW]}, "level": [WARNING]},
         {"config": {"message": [PColor.RED, TextMode.UNDERLINE]}, "level": [ERROR]},
         {"config": {"message": [PColor.CYAN, TextMode.CROSS]}, "level": [CRITICAL]},
         {"config": {"message": [PColor.PURPLE]}, "level": [25]},
-        {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level": [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]}
+        {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level":
+            [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]}
     ])
 
     console_handler = logging.StreamHandler()

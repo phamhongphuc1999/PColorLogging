@@ -1,0 +1,69 @@
+[
+  {
+    "config": {
+      "message": [
+        "white"
+      ]
+    },
+    "level": [
+      10
+    ]
+  },
+  {
+    "config": {
+      "message": [
+        "green"
+      ]
+    },
+    "level": [
+      20
+    ]
+  },
+  {
+    "config": {
+      "message": [
+        "yellow"
+      ]
+    },
+    "level": [
+      30
+    ]
+  },
+  {
+    "config": {
+      "message": [
+        "red",
+        "underline"
+      ]
+    },
+    "level": [
+      40
+    ]
+  },
+  {
+    "config": {
+      "message": [
+        "cyan",
+        "cross"
+      ]
+    },
+    "level": [
+      50
+    ]
+  },
+  {
+    "config": {
+      "asctime": [
+        "blue",
+        "b_white"
+      ]
+    },
+    "level": [
+      10,
+      20,
+      30,
+      40,
+      50
+    ]
+  }
+]
