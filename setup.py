@@ -5,15 +5,15 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="PColorLogging",
-    version="0.0.22",
+    version="0.0.32",
     author="Phạm Hồng Phúc",
     author_email="phamhongphuc12atm1@gmail.com",
     description="This is powerful logging",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/phamhongphuc1999/PColorLog",
+    url="https://github.com/phamhongphuc1999/PColorLogging",
     project_urls={
-        "Bug Tracker": "https://github.com/phamhongphuc1999/PColorLog",
+        "Bug Tracker": "https://github.com/phamhongphuc1999/PColorLogging",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
