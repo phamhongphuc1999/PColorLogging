@@ -8,7 +8,7 @@ from PColorLogging.Logger.Adapter.extra_adapter_logger import ExtraAdapterLogger
 if __name__ == "__main__":
     basedir = os.path.abspath(os.path.dirname(__file__))
 
-    colored_formatter = ColoredFormatter("[%(asctime)s] %(levelname)s: %(message)s", file_config="./config.json")
+    colored_formatter = ColoredFormatter("[%(asctime)s] %(levelname)s: %(message)s", file_config="config.json")
 
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(colored_formatter)

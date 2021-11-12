@@ -103,4 +103,4 @@ def makeup(base_extra):
 
 extra_logger.set_maker(makeup)
 ```
-Full example in [here](https://github.com/phamhongphuc1999/PColorLogging/tree/main/example)
+Full example in [here](https://github.com/phamhongphuc1999/PColorLogging/tree/main/example/basic)
