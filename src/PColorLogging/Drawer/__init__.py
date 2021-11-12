@@ -1,5 +1,5 @@
 from PColorLogging import level_to_names, is_level
-from PColorLogging.Drawer.color import get_color, ColorMode
+from PColorLogging.Drawer.color import ColorMode
 from PColorLogging.Drawer.message_manager import _MessageManager
 from PColorLogging.Drawer.utils import _read_json_file
 from PColorLogging.error import NotFoundLevel
@@ -46,8 +46,7 @@ class Drawer:
                         new_attribute_maker = attribute_maker
                         _config = item['config'][key]
                         for _item_config in _config:
-                            new_attribute_maker = get_color(_item_config) + new_attribute_maker + get_color(
-                                ColorMode.RESET)
+                            new_attribute_maker = _item_config + new_attribute_maker + ColorMode.RESET
                         _temp_message = _temp_message.replace(attribute_maker, new_attribute_maker)
                     self._message.set_message(str_level, _temp_message)
 

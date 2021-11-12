@@ -51,7 +51,7 @@ if __name__ == "__main__":
             {
                 "config": {
                     "message": [PColor.RED, TextMode.UNDERLINE],
-                    "levelname": [PColor.RED]
+                    "levelname": [PColor.get_extra_background_color(9, 9), PColor.get_extra_color(2, 7)]
                 },
                 "level": [ERROR]
             },

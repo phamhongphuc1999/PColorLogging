@@ -32,3 +32,20 @@ class _PositionCode:
     @staticmethod
     def set_position(i, j):
         return f"\u001b[{i};{j}H"
+
+    @staticmethod
+    def save_position(flag):
+        if flag == "s":
+            return "\u001b[{s}"
+        elif flag == "u":
+            return "\u001b[{u}"
+
+
+class _ClearCode:
+    @staticmethod
+    def clear_screen(i: [0, 1, 2]):
+        return f"\u001b[{i}J"
+
+    @staticmethod
+    def clear_line(i: [0, 1, 2]):
+        return f"\u001b[{i}K"

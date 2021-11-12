@@ -1,6 +1,6 @@
 import logging
 
-from PColorLogging.Drawer import get_color, ColorMode
+from PColorLogging.Drawer import ColorMode
 
 
 class ExtraAdapterLogger(logging.LoggerAdapter):
@@ -23,7 +23,7 @@ class ExtraAdapterLogger(logging.LoggerAdapter):
                 for key in _config:
                     if key in base_extra:
                         for _item_config in _config[key]:
-                            new_extra[key] = get_color(_item_config) + str(new_extra[key]) + get_color(ColorMode.RESET)
+                            new_extra[key] = _item_config + str(new_extra[key]) + ColorMode.RESET
         return new_extra
 
     def process(self, msg, kwargs):
