@@ -1,9 +1,9 @@
 import logging
 
-from src.PColorLogging import INFO, ERROR, WARNING, CRITICAL, DEBUG, add_level_name
-from src.PColorLogging.Drawer.color import PColor, TextMode, ColorMode
-from src.PColorLogging.Formatter.colored_formatter import ColoredFormatter
-from src.PColorLogging.Logger.Adapter.extra_adapter_logger import ExtraAdapterLogger
+from PColorLogging import INFO, ERROR, WARNING, CRITICAL, DEBUG, add_level_name
+from PColorLogging.Drawer.color import PColor, TextMode, ColorMode
+from PColorLogging.Formatter.colored_formatter import ColoredFormatter
+from PColorLogging.Logger.Adapter.extra_adapter_logger import ExtraAdapterLogger
 
 
 def makeup(base_extra):
