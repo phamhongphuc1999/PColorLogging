@@ -33,5 +33,5 @@ class ExtraAdapterLogger(logging.LoggerAdapter):
             kwargs["extra"] = copy
         else:
             kwargs["extra"] = self.extra
-        kwargs['extra'] = self._makeup_extra_message(kwargs['extra'])
+        kwargs["extra"] = self._makeup_extra_message(kwargs["extra"])
         return msg, kwargs

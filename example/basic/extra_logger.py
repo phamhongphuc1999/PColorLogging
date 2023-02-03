@@ -8,15 +8,12 @@ from src.PColorLogging.Logger.Adapter.extra_adapter_logger import ExtraAdapterLo
 
 def makeup(base_extra):
     if "att1" in base_extra and "att2" in base_extra:
-        return {
-            "att1": [PColor.GREEN],
-            "att2": [PColor.PURPLE]
-        }
+        return {"att1": [PColor.GREEN], "att2": [PColor.PURPLE]}
     if "att1" in base_extra:
-        if base_extra['att1'] == "debug1":
+        if base_extra["att1"] == "debug1":
             return {"att1": [PColor.WHITE, PColor.B_YELLOW]}
     if "att2" in base_extra:
-        if base_extra['att2'] == "info2":
+        if base_extra["att2"] == "info2":
             return {"att2": [PColor.B_WHITE, PColor.BLACK]}
     return None
 
@@ -27,62 +24,34 @@ if __name__ == "__main__":
     colored_formatter = ColoredFormatter(
         "[%(asctime)s] %(levelname)-10s: %(att1)s %(att2)s %(message)s %(module)s %(msecs)d %(name)s (%(pathname)s)",
         [
-            {
-                "config": {
-                    "message": [PColor.WHITE],
-                    "levelname": [PColor.WHITE]
-                },
-                "level": [DEBUG]
-            },
-            {
-                "config": {
-                    "message": [PColor.GREEN],
-                    "levelname": [PColor.GREEN]
-                },
-                "level": [INFO]
-            },
-            {
-                "config": {
-                    "message": [PColor.YELLOW],
-                    "levelname": [PColor.YELLOW]
-                },
-                "level": [WARNING]
-            },
+            {"config": {"message": [PColor.WHITE], "levelname": [PColor.WHITE]}, "level": [DEBUG]},
+            {"config": {"message": [PColor.GREEN], "levelname": [PColor.GREEN]}, "level": [INFO]},
+            {"config": {"message": [PColor.YELLOW], "levelname": [PColor.YELLOW]}, "level": [WARNING]},
             {
                 "config": {
                     "message": [PColor.RED, TextMode.UNDERLINE],
-                    "levelname": [PColor.get_extra_background_color(9, 9), PColor.get_extra_color(2, 7)]
+                    "levelname": [PColor.get_extra_background_color(9, 9), PColor.get_extra_color(2, 7)],
                 },
-                "level": [ERROR]
+                "level": [ERROR],
             },
-            {
-                "config": {
-                    "message": [PColor.CYAN, TextMode.CROSS],
-                    "levelname": [PColor.CYAN]
-                },
-                "level": [CRITICAL]
-            },
-            {
-                "config": {
-                    "message": [PColor.PURPLE],
-                    "levelname": [PColor.PURPLE]
-                },
-                "level": [25]
-            },
+            {"config": {"message": [PColor.CYAN, TextMode.CROSS], "levelname": [PColor.CYAN]}, "level": [CRITICAL]},
+            {"config": {"message": [PColor.PURPLE], "levelname": [PColor.PURPLE]}, "level": [25]},
             {
                 "config": {
                     "asctime": [PColor.BLUE],
                     "levelname": [ColorMode.BOLD],
                     "module": [PColor.GREEN],
-                    "pathname": [TextMode.ITALIC]},
-                "level": [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]
-            }
-        ])
+                    "pathname": [TextMode.ITALIC],
+                },
+                "level": [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25],
+            },
+        ],
+    )
 
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(colored_formatter)
 
-    extra_logger = ExtraAdapterLogger("logger", {"att1": '', "att2": ''})
+    extra_logger = ExtraAdapterLogger("logger", {"att1": "", "att2": ""})
     extra_logger.set_maker(makeup)
 
     extra_logger.add_handler(console_handler)

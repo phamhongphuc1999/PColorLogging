@@ -19,7 +19,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Environment :: Console"
+        "Environment :: Console",
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),

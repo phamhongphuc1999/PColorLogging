@@ -36,5 +36,5 @@ class ProcessConsole:
         print("Loading...")
         for i in range(self.minimum, self.maximum):
             time.sleep(0.1)
-            sys.stdout.write(u"\u001b[1000D" + str(i + 1) + "%")
+            sys.stdout.write("\u001b[1000D" + str(i + 1) + "%")
             sys.stdout.flush()

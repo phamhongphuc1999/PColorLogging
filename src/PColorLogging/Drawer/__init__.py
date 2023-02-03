@@ -4,7 +4,7 @@ from PColorLogging.Drawer.message_manager import _MessageManager
 from PColorLogging.Drawer.utils import _read_json_file
 from PColorLogging.error import NotFoundLevel
 
-BASE_CHARS = ['-', '+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 's', 'f', 'd']
+BASE_CHARS = ["-", "+", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "s", "f", "d"]
 
 
 class Drawer:
@@ -36,15 +36,15 @@ class Drawer:
     def _draw_message(self):
         if self.config is not None:
             for item in self.config:
-                for _level in item['level']:
+                for _level in item["level"]:
                     if _level not in level_to_names:
                         raise NotFoundLevel(_level)
                     str_level = level_to_names[_level]
                     _temp_message = self._message.get_message(str_level)
-                    for key in item['config']:
+                    for key in item["config"]:
                         attribute_maker = self._detect_format_attribute(key, _temp_message)
                         new_attribute_maker = attribute_maker
-                        _config = item['config'][key]
+                        _config = item["config"][key]
                         for _item_config in _config:
                             new_attribute_maker = _item_config + new_attribute_maker + ColorMode.RESET
                         _temp_message = _temp_message.replace(attribute_maker, new_attribute_maker)

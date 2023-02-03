@@ -33,7 +33,7 @@ colored_formatter = ColoredFormatter(f"[%(asctime)s] %(levelname)s: %(message)s"
     {"config": {"message": [PColor.RED, TextMode.UNDERLINE]}, "level": [ERROR]},
     {"config": {"message": [PColor.CYAN, TextMode.CROSS]}, "level": [CRITICAL]},
     {"config": {"message": [PColor.PURPLE]}, "level": [25]},
-    {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level": 
+    {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level":
         [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]}
 ])
 
@@ -71,7 +71,7 @@ colored_formatter = ColoredFormatter(f"[%(asctime)s] %(levelname)s: %(att1)s %(a
     {"config": {"message": [PColor.RED, TextMode.UNDERLINE]}, "level": [ERROR]},
     {"config": {"message": [PColor.CYAN, TextMode.CROSS]}, "level": [CRITICAL]},
     {"config": {"message": [PColor.PURPLE]}, "level": [25]},
-    {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level": 
+    {"config": {"asctime": [PColor.BLUE, PColor.B_WHITE]}, "level":
         [DEBUG, INFO, WARNING, ERROR, CRITICAL, 25]}
 ])
 
